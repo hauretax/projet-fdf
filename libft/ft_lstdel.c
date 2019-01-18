@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/12 11:23:48 by hutricot          #+#    #+#             */
+/*   Updated: 2018/11/15 13:55:18 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	t_list	*tmp;
 
-int				ft_error(int e);
-
-#endif
+	while (*alst != NULL)
+	{
+		tmp = (*alst)->next;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = tmp;
+	}
+	free(*alst);
+	*alst = (NULL);
+}

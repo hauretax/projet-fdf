@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_lstadd_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/11 14:53:59 by hutricot          #+#    #+#             */
+/*   Updated: 2019/01/18 15:52:01 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+void	ft_lstadd_b(t_list **b_l, t_list *new)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	t_list *tmp;
 
-int				ft_error(int e);
-
-#endif
+	tmp = *b_l;
+	if (tmp == NULL)
+	{
+		*b_l = new;
+		return ;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+}

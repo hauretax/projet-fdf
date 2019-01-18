@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/11 15:23:45 by hutricot          #+#    #+#             */
+/*   Updated: 2018/11/11 15:31:10 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+int	ft_lstsize(t_list *b_l)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	t_list	*tmp;
+	int		i;
 
-int				ft_error(int e);
-
-#endif
+	i = 0;
+	tmp = b_l;
+	if (tmp == NULL)
+		return (0);
+	i++;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
+}

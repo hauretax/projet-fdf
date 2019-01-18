@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/07 14:01:12 by hutricot          #+#    #+#             */
+/*   Updated: 2018/11/16 15:27:45 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+char	*ft_strdup(const char *sr)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	int			i;
+	char		*s;
+	char		*src;
 
-int				ft_error(int e);
-
-#endif
+	src = (char *)sr;
+	i = 0;
+	while (src[i])
+		i++;
+	if ((s = malloc(i + 1 * sizeof(char))) == 0)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		s[i] = src[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}

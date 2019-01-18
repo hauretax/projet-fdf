@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/08 13:55:33 by hutricot          #+#    #+#             */
+/*   Updated: 2018/11/15 15:36:45 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+void	*ft_memalloc(size_t size)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	void *v;
+	char *s;
 
-int				ft_error(int e);
-
-#endif
+	if ((s = malloc(size)) == 0)
+		return (0);
+	v = (void *)s;
+	while (size--)
+	{
+		*s = 0;
+		s++;
+	}
+	return (v);
+}

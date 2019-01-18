@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/06 18:46:03 by hutricot          #+#    #+#              #
+#    Updated: 2019/01/18 17:33:58 by hutricot         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+NAME = libft.a
+
+CFLAGS = -Wall -Wextra  -I ./
+
+S =		ft_strlen.c \
+		ft_strdup.c \
+		ft_strcpy.c \
+		ft_strstr.c \
+		ft_strjoin.c \
+		ft_putstr.c	\
+		ft_get_line.c \
+		ft_bzero.c \
+		ft_atoi.c \
+		ft_lstadd_b.c \
+		ft_lstnew.c
+
+S_O = $(S:.c=.o)
+
+
+all: $(NAME)
+$(NAME) : $(S_O) 
+	ar rc $(NAME) $(S_O)
+
+clean :
+	rm -f $(S_O)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/10 10:51:34 by hutricot          #+#    #+#             */
+/*   Updated: 2019/01/17 15:14:24 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
+#include "libft.h"
 
-typedef struct	s_fdf
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	char	*sr;
+	int		i;
 
-int				ft_error(int e);
-
-#endif
+	i = 0;
+	if (s == 0)
+		return (0);
+	if ((sr = malloc((len + 1) * sizeof(char))) == 0)
+		return (0);
+	while (len > 0 && s[start])
+	{
+		sr[i] = s[start];
+		len--;
+		i++;
+		start++;
+	}
+	sr[i] = '\0';
+	return (sr);
+}

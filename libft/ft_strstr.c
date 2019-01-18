@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h.h                                                :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 15:29:40 by hutricot         ###   ########.fr       */
+/*   Created: 2018/11/08 10:34:05 by hutricot          #+#    #+#             */
+/*   Updated: 2018/11/17 13:01:53 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_H
-# define H_H
-# define WINDOW 2500, 1300
-# include <unistd.h>
-# include "libft/libft.h"
-# include "mlx.h"
-
-typedef struct	s_fdf
+char	*ft_strstr(const char *str, const char *to_find)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*str;
-	int		key;
-	int		x;
-	int		y;
-	int		bpp;
-	int		s_l;
-	int		v;
-}				t_ptr;
+	int y;
 
-int				ft_error(int e);
-
-#endif
+	if (*to_find == '\0')
+		return ((char *)str);
+	while (*str != '\0')
+	{
+		y = 0;
+		while (str[y] == to_find[y] && str[y])
+			++y;
+		if (to_find[y] == '\0')
+			return ((char *)str);
+		++str;
+	}
+	return (0);
+}
