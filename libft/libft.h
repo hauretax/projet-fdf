@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:38:03 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 17:46:19 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/19 12:13:20 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int		ft_lstsize(t_list *b_l);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_lstadd_b(t_list **b_l, t_list *new);
 t_list	*ft_lstnew(void const *content, size_t content_size);

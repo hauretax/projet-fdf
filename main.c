@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/18 19:18:16 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/19 14:52:45 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,52 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int		**creat_tab(t_list *lst)
+static int		cmp_num(char *str)
 {
-	t_list	*tmp;
-	int		i;
-	
-	i = 0;
-	tmp = lst;
-	while (tmp->next != NULL)
-	{
-		printf("%s",tmp->content);
-		i++;
-		tmp = tmp->next;
-	}
-	printf("%d",i);
-	
+	int i;
+	int n;
 
+	i = 0;
+	n = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ')
+			n++;
+		i++;
+	}
+	n++;
+	return (n);
 }
 
-t_list	*creat_lst(char *str)
+static int		**creat_tab(t_list *lst)
+{
+	int		i[4];
+	int		**tab;
+	char	*str;
+
+	i[0] = 0;
+	i[2] = cmp_num((char *)lst->content);
+	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst)));
+	while (lst != NULL)
+	{
+		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
+		i[1] = 0;
+		str = (char *)lst->content;
+		while (i[1] < i[2])
+		{
+			tab[i[0]][i[1]] = ft_atoi(str);
+			str++;
+			i[1]++;
+			while ((*str > '0' && *str < '9') || *str == '-')
+				str++;
+		}
+		i[0]++;
+		lst = lst->next;
+	}
+	return (tab);
+}
+
+static t_list	*creat_lst(char *str)
 {
 	int		fd;
 	char	*line;
@@ -45,18 +72,18 @@ t_list	*creat_lst(char *str)
 	l[0] = ft_lstnew(line, (ft_strlen(line) + 1));
 	free(line);
 	line = NULL;
-	while(ft_get_line(fd, &line))
+	while (ft_get_line(fd, &line))
 	{
 		l[1] = ft_lstnew(line, (ft_strlen(line) + 1));
 		ft_lstadd_b(&l[0], l[1]);
 		free(line);
 		line = NULL;
 	}
-	close (fd);
-	return(l[0]);
+	close(fd);
+	return (l[0]);
 }
 
-int 		main(int c, char **v)
+int				main(int c, char **v)
 {
 	t_list	*lst;
 	int		**tab;

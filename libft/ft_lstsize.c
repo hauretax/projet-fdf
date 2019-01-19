@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:23:45 by hutricot          #+#    #+#             */
-/*   Updated: 2018/11/11 15:31:10 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/19 12:28:18 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_lstsize(t_list *b_l)
 	tmp = b_l;
 	if (tmp == NULL)
 		return (0);
-	i++;
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		tmp = tmp->next;
 		i++;
