@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/19 14:52:45 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/21 15:56:13 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,14 @@ int				main(int c, char **v)
 {
 	t_list	*lst;
 	int		**tab;
+	int		t[2];
 
 	if (c != 2)
 		return (ft_error(0));
 	lst = creat_lst(v[1]);
 	tab = creat_tab(lst);
+	t[0] = ft_lstsize(lst);
+	t[1] = (cmp_num((char *)lst->content) - 1);
+	ft_window(tab, t);
 	return (0);
 }

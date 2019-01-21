@@ -1,1 +1,1 @@
-gcc -I /usr/local/include test.c -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit
+gcc  test.c -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit
