@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:55:15 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/22 13:34:49 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/24 13:43:35 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_abs(int nb)
 		return nb;
 }
 
-void	right_down(t_line *l1, void *param)
+void	right(t_line *l1, void *param, char c)
 {
 	t_ptr *w1;
 
@@ -36,7 +36,10 @@ void	right_down(t_line *l1, void *param)
 		if (l1->p >= 0)
 		{
 			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
-			l1->y = l1->y + 1;
+			if (c == '+')
+				l1->y = l1->y + 1;
+			if (c == '-')
+				l1->y = l1->y - 1;
 			l1->p = l1->p + 2 * l1->dy - 2 * l1->dx;
 		}
 		else
@@ -46,34 +49,6 @@ void	right_down(t_line *l1, void *param)
 		}
 		l1->x = l1->x + 1;
 	}
-}
-
-void    right_up(t_line *l1, void *param)
-{
-	t_ptr *w1;
-
-	w1 = (t_ptr *)param;
-	l1->x = l1->x0;
-	l1->y = l1->y0;
-	l1->dy = ft_abs(l1->dy);
-	l1->dx = ft_abs(l1->dx);
-	l1->p = 2 * l1->dy - l1->dx;
-	while (l1->x < l1->x1)
-	{
-		if (l1->p >= 0)
-		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
-			l1->y = l1->y - 1;
-			l1->p = l1->p + 2 * l1->dy - 2 * l1->dx;
-		}
-		else
-		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
-			l1->p = l1->p + 2 * l1->dy;
-		}
-		l1->x = l1->x + 1;
-	}
-	puts("up");
 }
 
 void	ft_line(t_line *l1, void *param)
@@ -95,7 +70,7 @@ void	ft_line(t_line *l1, void *param)
 	l1->dy = l1->y1 - l1->y0;
 	
 	if (l1->dy >= 0)
-		right_down(l1, param);
+		right(l1, param, '+');
 	if (l1->dy < 0)
-		right_up(l1, param);
+		right(l1, param, '-');
 }
