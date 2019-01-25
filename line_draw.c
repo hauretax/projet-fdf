@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:55:15 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/24 13:43:35 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/25 12:27:13 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,26 @@ void	right(t_line *l1, void *param, char c)
 	}
 }
 
-void	ft_line(t_line *l1, void *param)
+void	ft_line(t_line l1, void *param)
 {
 	int swp;
-	l1->dx = l1->x1 - l1->x0;
-	l1->dy = l1->y1 - l1->y0;
+	l1.dx = l1.x1 - l1.x0;
+	l1.dy = l1.y1 - l1.y0;
 
-	if (l1->dx < 0)
+	if (l1.dx < 0)
 	{
-		swp = l1->x0;
-		l1->x0 = l1->x1;
-		l1->x1 = swp;
-		swp = l1->y0;
-		l1->y0 = l1->y1;
-		l1->y1 = swp;
+		swp = l1.x0;
+		l1.x0 = l1.x1;
+		l1.x1 = swp;
+		swp = l1.y0;
+		l1.y0 = l1.y1;
+		l1.y1 = swp;
 	}
-	l1->dx = l1->x1 - l1->x0;
-	l1->dy = l1->y1 - l1->y0;
+	l1.dx = l1.x1 - l1.x0;
+	l1.dy = l1.y1 - l1.y0;
 	
-	if (l1->dy >= 0)
-		right(l1, param, '+');
-	if (l1->dy < 0)
-		right(l1, param, '-');
+	if (l1.dy >= 0)
+		right(&l1, param, '+');
+	if (l1.dy < 0)
+		right(&l1, param, '-');
 }

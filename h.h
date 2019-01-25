@@ -6,13 +6,15 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/22 13:22:26 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/25 15:18:10 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
 # define WINDOW 2500, 1300
+# define X 0
+# define Y 1
 # include <unistd.h>
 # include "libft/libft.h"
 # include "mlx.h"
@@ -29,7 +31,16 @@ typedef struct	s_fdf
 	int		bpp;
 	int		s_l;
 	int		v;
+	int		**tab[2];
+	int		origine[2];
+	int		iso[3][2];
 }				t_ptr;
+
+typedef struct	s_point
+{
+	int x;
+	int y;
+}				t_point;
 
 typedef struct	s_line
 {
@@ -44,8 +55,10 @@ typedef struct	s_line
 	int p;
 }				t_line;
 
+void			ft_iso(t_ptr *ptr);
 int				ft_error(int e);
 int				ft_window(int **tab, int t[2]);
-void			ft_line(t_line *l1, void *param);
+void			ft_line(t_line l1, void *param);
+void			ft_display(int **tab, int t[2], t_ptr);
 
 #endif

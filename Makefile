@@ -6,13 +6,13 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/01/22 13:17:40 by hutricot         ###   ########.fr        #
+#    Updated: 2019/01/25 14:48:53 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-FILE = map_test/10-70.fdf
+FILE = map_test/42.fdf
 
 FLAGS = -Wall -Wextra 
 
@@ -23,6 +23,8 @@ SRC = \
 	ft_error.c \
 	test.c \
 	line_draw.c \
+	ft_display.c \
+	ft_iso.c
 	  
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/21 16:51:28 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/25 10:10:58 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ static int		cmp_num(char *str)
 	while (str[i])
 	{
 		if (str[i] == ' ')
+		{
 			n++;
+			while(str[i] == ' ')
+				i++;
+		}
 		i++;
 	}
 	n++;
@@ -51,7 +55,9 @@ static int		**creat_tab(t_list *lst)
 			tab[i[0]][i[1]] = ft_atoi(str);
 			str++;
 			i[1]++;
-			while ((*str > '0' && *str < '9') || *str == '-')
+			while ((*str >= '0' && *str <= '9') || *str == '-')
+				str++;
+			while (*str == ' ')
 				str++;
 		}
 		i[0]++;
