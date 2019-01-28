@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/25 18:21:15 by psim             ###   ########.fr       */
+/*   Updated: 2019/01/28 15:40:16 by psim             ###   ########.fr       */
 /*   Updated: 2019/01/25 16:18:02 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -37,6 +37,13 @@ typedef struct	s_fdf
 	int		origine[2];
 	int		iso[3][2];
 }				t_ptr;
+
+typedef struct 	s_rgb
+{
+	int red;
+	int green;
+	int blue;
+}
 
 typedef struct	s_point
 {
