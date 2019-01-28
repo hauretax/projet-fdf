@@ -6,18 +6,19 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/25 15:28:24 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/28 13:02:31 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
 
-static int	deal_key(int key, void *param)
+static int	deal_key(int key, t_ptr *ptr)
 {
-	write(1, "X", 1);
+	printf("%d\n", key);
+	printf("%d\n",ptr->origine[X]);
 	return (key);
 }
-
+/*
 void	ft_image(t_ptr *p, int **tab, int t[2])
 {
 	int i[2];
@@ -39,7 +40,7 @@ void	ft_image(t_ptr *p, int **tab, int t[2])
 		p->y++;
 	}
 }
-
+*/
 int			ft_window(int **tab, int t[2])
 {
 	t_ptr ptr;
@@ -51,7 +52,7 @@ int			ft_window(int **tab, int t[2])
 	ft_iso(&ptr);
 	//mlx_put_image_to_window (ptr.mlx, ptr.win, ptr.img, 300, 300);
 	ft_display(tab, t, ptr);
-	//mlx_key_hook(ptr.win, deal_key,(void*)0);
+	mlx_key_hook(ptr.win, deal_key, (void *)&ptr);
 	mlx_loop(ptr.mlx);
 	return (2);
 }

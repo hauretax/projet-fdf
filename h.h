@@ -6,6 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
+/*   Updated: 2019/01/25 18:21:15 by psim             ###   ########.fr       */
 /*   Updated: 2019/01/25 16:18:02 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -18,6 +19,7 @@
 # include <unistd.h>
 # include "libft/libft.h"
 # include "mlx.h"
+# define ABS(x) (x > 0 ? x : -x)
 
 typedef struct	s_fdf
 {
@@ -56,6 +58,7 @@ typedef struct	s_line
 }				t_line;
 
 void			ft_iso(t_ptr *ptr);
+void			ft_swap(int *a, int *b);
 int				ft_error(int e);
 int				ft_window(int **tab, int t[2]);
 void			ft_line(t_line l1, void *param);

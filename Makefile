@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/01/25 14:48:53 by hutricot         ###   ########.fr        #
+#    Updated: 2019/01/25 17:55:24 by psim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = \
 	test.c \
 	line_draw.c \
 	ft_display.c \
+	ft_swap.c \
 	ft_iso.c
 	  
 OBJ = $(SRC:.c=.o)

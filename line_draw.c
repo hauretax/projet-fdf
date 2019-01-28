@@ -6,21 +6,13 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:49:01 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/25 16:00:07 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/25 18:04:56 by psim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "h.h"
 #include <unistd.h>
-
-int		ft_abs(int nb)
-{
-	if (nb < 0)
-		return -nb;
-	else
-		return nb;
-}
 
 void	right_down(t_line *l1, void *param)
 {
@@ -29,8 +21,8 @@ void	right_down(t_line *l1, void *param)
 	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
-	l1->dy = ft_abs(l1->dy);
-	l1->dx = ft_abs(l1->dx);
+	l1->dy = ABS(l1->dy);
+	l1->dx = ABS(l1->dx);
 	l1->p = 2 * l1->dy - l1->dx;
 	while (l1->x < l1->x1)
 	{
@@ -48,15 +40,16 @@ void	right_down(t_line *l1, void *param)
 		l1->x = l1->x + 1;
 	}
 }
-void    right_down2(t_line *l1, void *param)
+
+void	right_down2(t_line *l1, void *param)
 {
 	t_ptr *w1;
 
 	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
-	l1->dy = ft_abs(l1->dy);
-	l1->dx = ft_abs(l1->dx);
+	l1->dy = ABS(l1->dy);
+	l1->dx = ABS(l1->dx);
 	l1->p = 2 * l1->dx - l1->dy;
 	while (l1->y < l1->y1)
 	{
@@ -75,15 +68,15 @@ void    right_down2(t_line *l1, void *param)
 	}
 }
 
-void    right_up(t_line *l1, void *param)
+void	right_up(t_line *l1, void *param)
 {
 	t_ptr *w1;
 
 	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
-	l1->dy = ft_abs(l1->dy);
-	l1->dx = ft_abs(l1->dx);
+	l1->dy = ABS(l1->dy);
+	l1->dx = ABS(l1->dx);
 	l1->p = 2 * l1->dy - l1->dx;
 	while (l1->x < l1->x1)
 	{
@@ -102,15 +95,15 @@ void    right_up(t_line *l1, void *param)
 	}
 }
 
-void    right_up2(t_line *l1, void *param)
+void	right_up2(t_line *l1, void *param)
 {
 	t_ptr *w1;
 
 	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
-	l1->dy = ft_abs(l1->dy);
-	l1->dx = ft_abs(l1->dx);
+	l1->dy = ABS(l1->dy);
+	l1->dx = ABS(l1->dx);
 	l1->p = 2 * l1->dx - l1->dy;
 	while (l1->y > l1->y1)
 	{
@@ -131,22 +124,13 @@ void    right_up2(t_line *l1, void *param)
 
 void	ft_line(t_line l1, void *param)
 {
-	int swp;
-	l1.dx = l1.x1 - l1.x0;
-	l1.dy = l1.y1 - l1.y0;
-
-	if (l1.dx < 0)
+	if (l1.x1 - l1.x0 < 0)
 	{
-		swp = l1.x0;
-		l1.x0 = l1.x1;
-		l1.x1 = swp;
-		swp = l1.y0;
-		l1.y0 = l1.y1;
-		l1.y1 = swp;
+		ft_swap(&(l1.x0), &(l1.x1));
+		ft_swap(&(l1.y0), &(l1.y1));
 	}
 	l1.dx = l1.x1 - l1.x0;
 	l1.dy = l1.y1 - l1.y0;
-
 	if (l1.dy >= 0)
 	{
 		if (l1.dy > l1.dx)
@@ -156,7 +140,7 @@ void	ft_line(t_line l1, void *param)
 	}
 	if (l1.dy < 0)
 	{
-		if (ft_abs(l1.dy) > l1.dx)
+		if (ABS(l1.dy) > l1.dx)
 			right_up2(&l1, param);
 		else
 			right_up(&l1, param);
