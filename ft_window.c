@@ -6,12 +6,26 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 15:11:38 by psim             ###   ########.fr       */
+/*   Updated: 2019/01/29 15:49:04 by psim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
 
+void		freelst(t_list **alst)
+{
+	t_list  *tmp;
+
+	while (*alst != NULL)
+	{
+		tmp = (*alst)->next;
+		free((*alst)->content);
+		free(*alst);
+		*alst = tmp;
+	}
+	free(*alst);
+	*alst = (NULL);
+}
 void		freexit(t_ptr *ptr)
 {
 	int i;

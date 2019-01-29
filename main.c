@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 15:07:23 by psim             ###   ########.fr       */
+/*   Updated: 2019/01/29 15:42:45 by psim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int				main(int c, char **v)
 	tab = creat_tab(lst);
 	t[0] = (ft_lstsize(lst) + 1);
 	t[1] = (cmp_num((char *)lst->content) - 1);
+	freelst(&lst);
 	ft_window(tab, t);
 	return (0);
 }
