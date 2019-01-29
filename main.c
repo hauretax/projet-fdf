@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 12:57:23 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 14:12:37 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static int		**creat_tab(t_list *lst)
 		i[0]++;
 		lst = lst->next;
 	}
+		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
 	return (tab);
 }
 
