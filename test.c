@@ -6,11 +6,25 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 14:35:22 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 15:11:38 by psim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
+
+void		freexit(t_ptr *ptr)
+{
+	int i;
+
+	i = 0;
+	while ((ptr->tab)[i])
+	{
+		free((ptr->tab)[i]);
+		i++;
+	}
+	free(ptr->tab);
+	exit(0);
+}
 
 static int	deal_key(int key, t_ptr *ptr)
 {
@@ -23,6 +37,8 @@ static int	deal_key(int key, t_ptr *ptr)
 		ptr->o[Y] -= 10;
 	if (key == 84)
 		ptr->o[Y] += 10;
+	if (key == 53)
+		freexit(ptr);
 	ft_display(ptr->tab, ptr->t, *ptr);
 	return (key);
 }
