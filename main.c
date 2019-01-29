@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 14:12:37 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 14:53:41 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		**creat_tab(t_list *lst)
 
 	i[0] = 0;
 	i[2] = cmp_num((char *)lst->content);
-	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst)));
+	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst) + 1));
 	while (lst != NULL)
 	{
 		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
@@ -53,6 +53,7 @@ static int		**creat_tab(t_list *lst)
 		while (i[1] < i[2])
 		{
 			tab[i[0]][i[1]] = ft_atoi(str);
+			printf("%d",tab[i[0]][i[1]]);
 			str++;
 			i[1]++;
 			while ((*str >= '0' && *str <= '9') || *str == '-')
@@ -63,7 +64,6 @@ static int		**creat_tab(t_list *lst)
 		i[0]++;
 		lst = lst->next;
 	}
-		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
 	return (tab);
 }
 

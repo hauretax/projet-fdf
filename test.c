@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 13:11:04 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 14:35:22 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			ft_window(int **tab, int t[2])
 	ptr.win = mlx_new_window(ptr.mlx, 2000, 1500, "mlx 42");
 	ft_iso(&ptr);
 	ft_display(tab, t, ptr);
+	puts("helo2");
 	mlx_key_hook(ptr.win, deal_key, (void *)&ptr);
 	mlx_loop(ptr.mlx);
 	return (2);
