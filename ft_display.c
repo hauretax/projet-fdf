@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:19:27 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/28 13:07:04 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 13:04:04 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,17 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 	i[Y] = 0;
 	while (i[Y] + 1 < t[0])
 	{
-		p.x = ptr.origine[X] + i[Y] * ptr.iso[1][0];
-		p.y = ptr.origine[Y] + i[Y] * ptr.iso[1][1];
+		p.x = ptr.o[X] + i[Y] * ptr.iso[1][0];
+		p.y = ptr.o[Y] + i[Y] * ptr.iso[1][1];
 		i[X] = 0;
-		while (i[X] < t[1])
+		while (i[X]  <= t[1])
 	 	{
 			h[0] = tab[i[Y]][i[X]];
-			h[1] = tab[i[Y]][i[X] + 1];
-			if (i[X] < t[1])
+			if (i[X] < t[1] - 1)
+				h[1] = tab[i[Y]][i[X] + 1];
+			else
+				h[1] = h[0];
+			if (i[X] <= t[1])
 				ft_compute_line(ptr, &p, h, 0);
 			if (i[Y] + 2 < t[0])
 				h[1] = tab[i[Y] + 1][i[X]];

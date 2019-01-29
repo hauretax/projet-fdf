@@ -6,12 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/01/28 15:40:47 by hutricot         ###   ########.fr       */
-=======
-/*   Updated: 2019/01/28 15:40:16 by psim             ###   ########.fr       */
->>>>>>> 3d47476acd59c557279b4021678ae644b0e28c83
-/*   Updated: 2019/01/25 16:18:02 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/28 16:36:15 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +26,7 @@ typedef struct	s_fdf
 	void	*win;
 	void	*img;
 	int		*str;
-	int		key;
+	int		t[2];
 	int		x;
 	int		y;
 	int		bpp;
@@ -47,7 +42,7 @@ typedef struct 	s_rgb
 	int red;
 	int green;
 	int blue;
-}
+}			t_rgb;
 
 typedef struct	s_point
 {

@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/28 11:48:40 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 12:57:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		**creat_tab(t_list *lst)
 
 	i[0] = 0;
 	i[2] = cmp_num((char *)lst->content);
-	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst) + 1));
+	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst)));
 	while (lst != NULL)
 	{
 		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
