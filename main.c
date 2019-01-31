@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 12:23:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 15:42:45 by psim             ###   ########.fr       */
+/*   Updated: 2019/01/31 14:28:27 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		cmp_num(char *str)
 		if (str[i] == ' ')
 		{
 			n++;
-			while(str[i] == ' ')
+			while (str[i] == ' ')
 				i++;
 		}
 		i++;
@@ -36,31 +36,37 @@ static int		cmp_num(char *str)
 	return (n);
 }
 
+static int		*feed_tab(int max, char *str)
+{
+	int i;
+	int *tab;
+
+	tab = (int *)malloc(sizeof(int *) * max);
+	i = 0;
+	while (i < max)
+	{
+		tab[i] = ft_atoi(str);
+		str++;
+		i++;
+		while ((*str >= '0' && *str <= '9') || *str == '-')
+			str++;
+		while (*str == ' ')
+			str++;
+	}
+	return (tab);
+}
+
 static int		**creat_tab(t_list *lst)
 {
 	int		i[4];
 	int		**tab;
-	char	*str;
 
 	i[0] = 0;
 	i[2] = cmp_num((char *)lst->content);
 	tab = (int **)malloc(sizeof(int *) * (ft_lstsize(lst) + 1));
 	while (lst != NULL)
 	{
-		tab[i[0]] = (int *)malloc(sizeof(int *) * (i[2]));
-		i[1] = 0;
-		str = (char *)lst->content;
-		while (i[1] < i[2])
-		{
-			tab[i[0]][i[1]] = ft_atoi(str);
-			printf("%d",tab[i[0]][i[1]]);
-			str++;
-			i[1]++;
-			while ((*str >= '0' && *str <= '9') || *str == '-')
-				str++;
-			while (*str == ' ')
-				str++;
-		}
+		tab[i[0]] = feed_tab(i[2], (char *)lst->content);
 		i[0]++;
 		lst = lst->next;
 	}
@@ -103,7 +109,7 @@ int				main(int c, char **v)
 	tab = creat_tab(lst);
 	t[0] = (ft_lstsize(lst) + 1);
 	t[1] = (cmp_num((char *)lst->content) - 1);
-	freelst(&lst);
+	ft_freelst(&lst);
 	ft_window(tab, t);
 	return (0);
 }

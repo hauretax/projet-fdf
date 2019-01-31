@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:19:27 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 14:53:44 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 16:10:32 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 		i[X] = 0;
 		while (i[X] <= t[1])
 		{
-	printf("%d\n",tab[i[Y]][i[X]]);
 			h[0] = tab[i[Y]][i[X]];
 			h[1] = tab[i[Y]][i[X] + 1];
 			i[X] < t[1] ? ft_cmpt_line(ptr, &p, h, 0) : ft_cmpt(ptr, &p, h, 0);

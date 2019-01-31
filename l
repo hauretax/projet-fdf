@@ -6,59 +6,11 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/31 14:50:33 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/29 14:35:22 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
-
-static void	freexit(t_ptr *ptr)
-{
-	int i;
-
-	i = 0;
-	while ((ptr->tab)[i])
-	{
-		free((ptr->tab)[i]);
-		i++;
-	}
-	free(ptr->tab);
-	exit(0);
-}
-
-static void	ft_m_f(t_ptr *ptr, int key)
-{
-	if (key == 78)
-	{
-		ptr->iso[1][1]--;
-		ptr->iso[0][0]--;
-	}
-	if (key == 69)
-	{
-		ptr->iso[1][1]++;
-		ptr->iso[0][0]++;
-	}
-	if (key == 89)
-		ptr->iso[2][0]--;
-	if (key == 92)
-		ptr->iso[2][0]++;
-}
-
-static void	ft_m_fonction(t_ptr *ptr, int key)
-{
-	if (ptr->iso[2][0] == 0)
-		ptr->iso[2][0] = 1;
-	if (key == 124)
-	{
-		ptr->iso[0][1]++;
-		ptr->iso[1][0]++;
-	}
-	if (key == 123)
-	{
-		ptr->iso[0][1]--;
-		ptr->iso[1][0]--;
-	}
-}
 
 static int	deal_key(int key, t_ptr *ptr)
 {
@@ -71,10 +23,6 @@ static int	deal_key(int key, t_ptr *ptr)
 		ptr->o[Y] -= 10;
 	if (key == 84)
 		ptr->o[Y] += 10;
-	ft_m_fonction(ptr, key);
-	ft_m_f(ptr, key);
-	if (key == 53)
-		freexit(ptr);
 	ft_display(ptr->tab, ptr->t, *ptr);
 	return (key);
 }
@@ -92,6 +40,7 @@ int			ft_window(int **tab, int t[2])
 	ptr.win = mlx_new_window(ptr.mlx, 2000, 1500, "mlx 42");
 	ft_iso(&ptr);
 	ft_display(tab, t, ptr);
+	puts("helo2");
 	mlx_key_hook(ptr.win, deal_key, (void *)&ptr);
 	mlx_loop(ptr.mlx);
 	return (2);

@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:46:03 by hutricot          #+#    #+#              #
-#    Updated: 2019/01/19 12:12:54 by hutricot         ###   ########.fr        #
+#    Updated: 2019/01/31 11:36:29 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ S =		ft_strlen.c \
 		ft_lstadd_b.c \
 		ft_lstnew.c \
 		ft_memcpy.c \
+		ft_freelst.c \
 		ft_lstsize.c
 
 S_O = $(S:.c=.o)

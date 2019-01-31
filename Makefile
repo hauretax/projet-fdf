@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/01/25 17:55:24 by psim             ###   ########.fr        #
+#    Updated: 2019/01/29 15:30:09 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OPTION =
 SRC = \
 	main.c \
 	ft_error.c \
-	test.c \
+	ft_window.c \
 	line_draw.c \
 	ft_display.c \
 	ft_swap.c \

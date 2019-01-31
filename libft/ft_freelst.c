@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_freelst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 14:03:13 by hutricot          #+#    #+#             */
-/*   Updated: 2018/11/15 11:27:21 by hutricot         ###   ########.fr       */
+/*   Created: 2019/01/31 11:36:11 by hutricot          #+#    #+#             */
+/*   Updated: 2019/01/31 11:39:42 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_freelst(t_list **alst)
 {
-	if (alst != NULL || new != NULL)
+	t_list  *tmp;
+
+	while (*alst != NULL)
 	{
-		new->next = *alst;
-		*alst = new;
+		tmp = (*alst)->next;
+		free((*alst)->content);
+		free(*alst);
+		*alst = tmp;
 	}
+	free(*alst);
+	*alst = (NULL);
 }
