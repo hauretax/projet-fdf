@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/31 14:50:33 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:29:58 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,13 @@ static void	ft_m_fonction(t_ptr *ptr, int key)
 	if (ptr->iso[2][0] == 0)
 		ptr->iso[2][0] = 1;
 	if (key == 124)
-	{
 		ptr->iso[0][1]++;
+	if (key == 124)
 		ptr->iso[1][0]++;
-	}
 	if (key == 123)
-	{
 		ptr->iso[0][1]--;
+	if (key == 124)
 		ptr->iso[1][0]--;
-	}
 }
 
 static int	deal_key(int key, t_ptr *ptr)
