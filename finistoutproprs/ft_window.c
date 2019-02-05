@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/03 11:40:52 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 15:59:21 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int			ft_window(int **tab, int t[2])
 	ptr.t[Y] = t[Y];
 	ptr.tab = tab;
 	ptr.mlx = mlx_init();
-	ptr.win = mlx_new_window(ptr.mlx, 2000, 1500, "mlx 42");
+	ptr.win = mlx_new_window(ptr.mlx, WIDTH, HEIGHT, "mlx 42");
 	ft_iso(&ptr);
 	ft_display(tab, t, ptr);
 	mlx_key_hook(ptr.win, deal_key, (void *)&ptr);

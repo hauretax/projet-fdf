@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/03 19:49:27 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/05 14:45:15 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ SRC = \
 	main.c \
 	ft_error.c \
 	ft_window.c \
-	line_draw.c \
+	line_draw2.c \
 	ft_display.c \
 	ft_swap.c \
-	ft_iso.c
+	ft_iso.c \
 	  
 OBJ = $(SRC:.c=.o)
 

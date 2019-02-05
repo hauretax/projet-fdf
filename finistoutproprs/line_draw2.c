@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:49:01 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/05 13:37:22 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 15:46:29 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 #include "h.h"
 #include <unistd.h>
 
-void	right_down(t_line *l1, void *param)
+void	right_down(t_line *l1, t_ptr *w1)
 {
-	t_ptr *w1;
-
-	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
 	l1->dy = (l1->dy > 0) ? l1->dy : l1->dy * -1;
@@ -28,24 +25,21 @@ void	right_down(t_line *l1, void *param)
 	{
 		if (l1->p >= 0)
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->y = l1->y + 1;
 			l1->p = l1->p + 2 * l1->dy - 2 * l1->dx;
 		}
 		else
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->p = l1->p + 2 * l1->dy;
 		}
 		l1->x = l1->x + 1;
 	}
 }
 
-void	right_down2(t_line *l1, void *param)
+void	right_down2(t_line *l1, t_ptr *w1)
 {
-	t_ptr *w1;
-
-	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
 	l1->dy = (l1->dy > 0) ? l1->dy : l1->dy * -1;
@@ -55,24 +49,21 @@ void	right_down2(t_line *l1, void *param)
 	{
 		if (l1->p >= 0)
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->x = l1->x + 1;
 			l1->p = l1->p + 2 * l1->dx - 2 * l1->dy;
 		}
 		else
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->p = l1->p + 2 * l1->dx;
 		}
 		l1->y = l1->y + 1;
 	}
 }
 
-void	right_up(t_line *l1, void *param)
+void	right_up(t_line *l1, t_ptr *w1)
 {
-	t_ptr *w1;
-
-	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
 	l1->dy = (l1->dy > 0) ? l1->dy : l1->dy * -1;
@@ -82,24 +73,21 @@ void	right_up(t_line *l1, void *param)
 	{
 		if (l1->p >= 0)
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->y = l1->y - 1;
 			l1->p = l1->p + 2 * l1->dy - 2 * l1->dx;
 		}
 		else
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->p = l1->p + 2 * l1->dy;
 		}
 		l1->x = l1->x + 1;
 	}
 }
 
-void	right_up2(t_line *l1, void *param)
+void	right_up2(t_line *l1, t_ptr *w1)
 {
-	t_ptr *w1;
-
-	w1 = (t_ptr *)param;
 	l1->x = l1->x0;
 	l1->y = l1->y0;
 	l1->dy = (l1->dy > 0) ? l1->dy : l1->dy * -1;
@@ -109,13 +97,13 @@ void	right_up2(t_line *l1, void *param)
 	{
 		if (l1->p >= 0)
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->x = l1->x + 1;
 			l1->p = l1->p + 2 * l1->dx - 2 * l1->dy;
 		}
 		else
 		{
-			mlx_pixel_put(w1->mlx, w1->win, l1->x, l1->y, 0xFFFFFF);
+			w1->str[l1->y * WIDTH + l1->x] = 0xFF0000;
 			l1->p = l1->p + 2 * l1->dx;
 		}
 		l1->y = l1->y - 1;

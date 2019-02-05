@@ -6,13 +6,14 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/03 11:41:01 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 14:49:06 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
-# define WINDOW 2500, 1300
+# define HEIGHT 1300
+# define WIDTH 2560
 # define X 0
 # define Y 1
 # include <unistd.h>
@@ -29,8 +30,8 @@ typedef struct	s_fdf
 	int		t[2];
 	int		x;
 	int		y;
-	int		bpp;
-	int		s_l;
+	int		b;
+	int		s;
 	int		v;
 	int		**tab;
 	int		o[2];

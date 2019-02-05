@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:19:27 by hutricot          #+#    #+#             */
-/*   Updated: 2019/01/29 16:10:32 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 14:49:04 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 	int		h[2];
 
 	i[Y] = 0;
+	ptr.img = mlx_new_image (ptr.mlx, WIDTH, HEIGHT);
+	ptr.str = (int *)mlx_get_data_addr(ptr.img, &(ptr.b), &(ptr.s), &(ptr.v));
 	while (i[Y] + 1 < t[0])
 	{
 		p.x = ptr.o[X] + i[Y] * ptr.iso[1][0];
@@ -58,12 +60,11 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 			h[0] = tab[i[Y]][i[X]];
 			h[1] = tab[i[Y]][i[X] + 1];
 			i[X] < t[1] ? ft_cmpt_line(ptr, &p, h, 0) : ft_cmpt(ptr, &p, h, 0);
-			if (i[Y] + 2 < t[0])
-				h[1] = tab[i[Y] + 1][i[X]];
-			if (i[Y] + 2 < t[0])
-				ft_cmpt_line(ptr, &p, h, 1);
+			i[Y] + 2 < t[0] ? h[1] = tab[i[Y] + 1][i[X]] : 1;
+			i[Y] + 2 < t[0] ? ft_cmpt_line(ptr, &p, h, 1) : 1;
 			i[X]++;
 		}
 		i[Y]++;
 	}
+	mlx_put_image_to_window (ptr.mlx, ptr.win, ptr.img, 0, 0);
 }
