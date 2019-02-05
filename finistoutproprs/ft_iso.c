@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:41:55 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/05 19:37:21 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 19:46:47 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_iso(t_ptr *ptr)
 {
-	ptr->iso[0][0] = 500 / ptr->t[X];
+	ptr->iso[0][0] = 1200 / ptr->t[X];
 	ptr->iso[0][1] = -1;
 	ptr->iso[1][0] = 2;
-	ptr->iso[1][1] = 600 / ptr->t[Y];
+	ptr->iso[1][1] = 1000 / ptr->t[Y];
 	ptr->iso[2][0] = 2;
 	ptr->iso[2][1] = 1;
 	ptr->o[X] = WIDTH / 2 - ptr->t[X] * ptr->iso[0][0];
