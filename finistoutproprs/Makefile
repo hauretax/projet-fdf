@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/05 14:45:15 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/05 16:29:59 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 FILE = map_test/42.fdf
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra 
 
 SRC = \
 	main.c \

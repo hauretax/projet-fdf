@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/05 15:59:21 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:04:17 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ static int	deal_key(int key, t_ptr *ptr)
 		ptr->o[X] += 10;
 	if (key == 86)
 		ptr->o[X] -= 10;
-	if (key == 91)
+	if (key == 91 && ptr->o[Y] != 0)
 		ptr->o[Y] -= 10;
-	if (key == 84)
+	if (key == 84 && ptr->o[Y] != WIDTH)
 		ptr->o[Y] += 10;
 	ft_m_fonction(ptr, key);
 	ft_m_f(ptr, key);

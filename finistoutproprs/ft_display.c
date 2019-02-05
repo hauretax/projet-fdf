@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:19:27 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/05 14:49:04 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:01:58 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 	int		h[2];
 
 	i[Y] = 0;
-	ptr.img = mlx_new_image (ptr.mlx, WIDTH, HEIGHT);
+	ptr.img = mlx_new_image(ptr.mlx, WIDTH, HEIGHT);
 	ptr.str = (int *)mlx_get_data_addr(ptr.img, &(ptr.b), &(ptr.s), &(ptr.v));
 	while (i[Y] + 1 < t[0])
 	{
@@ -66,5 +66,6 @@ void		ft_display(int **tab, int t[2], t_ptr ptr)
 		}
 		i[Y]++;
 	}
-	mlx_put_image_to_window (ptr.mlx, ptr.win, ptr.img, 0, 0);
+	mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.img, 0, 0);
+	mlx_destroy_image(ptr.mlx, ptr.img);
 }
