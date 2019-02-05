@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 12:43:40 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/05 17:04:17 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/05 19:37:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,13 @@ static void	freexit(t_ptr *ptr)
 static void	ft_m_f(t_ptr *ptr, int key)
 {
 	if (key == 78)
-	{
 		ptr->iso[1][1]--;
+	if (key == 27)
 		ptr->iso[0][0]--;
-	}
 	if (key == 69)
-	{
 		ptr->iso[1][1]++;
+	if (key == 24)
 		ptr->iso[0][0]++;
-	}
 	if (key == 89)
 		ptr->iso[2][0]--;
 	if (key == 92)
