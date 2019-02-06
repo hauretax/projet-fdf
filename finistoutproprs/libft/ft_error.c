@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iso.c                                           :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 14:41:55 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/06 11:11:08 by hutricot         ###   ########.fr       */
+/*   Created: 2019/01/17 12:24:57 by hutricot          #+#    #+#             */
+/*   Updated: 2019/02/06 11:16:10 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "h.h"
+#include "libft.h"
 
-void	ft_iso(t_ptr *ptr)
+int	ft_error(int e)
 {
-	ptr->iso[0][0] = 1200 / ptr->t[X];
-	ptr->iso[0][1] = -1;
-	ptr->iso[1][0] = 2;
-	ptr->iso[1][1] = 1000 / ptr->t[Y];
-	ptr->iso[2][0] = 2;
-	ptr->iso[2][1] = 1;
-	ptr->o[X] = WIDTH / 2 - ptr->t[X] * ptr->iso[0][0];
-	ptr->o[Y] = (HEIGHT - ptr->t[Y] * ptr->iso[1][1]) / 2;
+	if (e == 0)
+	{
+		write(2, "usage: ./fdf source_file\n", 25);
+		return (0);
+	}
+	return (0);
 }

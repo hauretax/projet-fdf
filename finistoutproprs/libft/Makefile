@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:46:03 by hutricot          #+#    #+#              #
-#    Updated: 2019/01/31 11:36:29 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/06 11:15:31 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFLAGS = -Wall -Wextra  -I ./
 
 S =		ft_strlen.c \
 		ft_strdup.c \
+		ft_error.c \
+		ft_swap.c \
 		ft_strcpy.c \
 		ft_strstr.c \
 		ft_strjoin.c \

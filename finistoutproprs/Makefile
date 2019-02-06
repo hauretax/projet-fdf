@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/05 19:38:23 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/06 11:15:35 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,9 @@ FLAGS = -Wall -Wextra -Werror
 
 SRC = \
 	main.c \
-	ft_error.c \
 	ft_window.c \
-	line_draw2.c \
+	line_draw.c \
 	ft_display.c \
-	ft_swap.c \
 	ft_iso.c \
 	  
 OBJ = $(SRC:.c=.o)
