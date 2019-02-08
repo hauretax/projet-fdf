@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:22:33 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/06 11:16:30 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/06 12:53:51 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <unistd.h>
 # include "libft/libft.h"
 # include "mlx.h"
-# define ABS(x) (x > 0 ? x : -x)
 
 typedef struct	s_fdf
 {

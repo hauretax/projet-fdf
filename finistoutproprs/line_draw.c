@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:49:01 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/06 11:18:03 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/06 12:56:46 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void		ft_line(t_line l1, void *param)
 	}
 	if (l1.dy < 0)
 	{
-		if (ABS(l1.dy) > l1.dx)
+		if ((l1.dy = (l1.dy > 0) ? l1.dy : l1.dy * -1) > l1.dx)
 			right_up2(&l1, param);
 		else
 			right_up(&l1, param);
